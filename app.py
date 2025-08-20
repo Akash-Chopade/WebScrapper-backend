@@ -24,13 +24,9 @@ INDIAN_CITIES = [
 
 app = Flask(__name__)
 
-# Configure CORS for production and development
-if os.environ.get('FLASK_ENV') == 'production':
-    # In production, specify your frontend domain
-    CORS(app, origins=["https://your-frontend-domain.com", "https://your-netlify-app.netlify.app"])
-else:
-    # In development, allow all origins
-    CORS(app)
+# Configure CORS - Allow all origins for now
+# You can restrict this later to your specific frontend domain
+CORS(app, origins="*")
 
 @app.route('/')
 def home():
